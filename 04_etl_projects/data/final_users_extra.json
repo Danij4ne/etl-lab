@@ -1,0 +1,82 @@
+[
+  {
+    "user_id": 1,
+    "city": "Madrid",
+    "timezone": "Europe/Madrid",
+    "plan_type": "free",
+    "last_login": "2024-11-20T10:23:00Z",
+    "churn_risk_score": 0.15
+  },
+  {
+    "user_id": 2,
+    "city": "Barcelona",
+    "timezone": "Europe/Madrid",
+    "plan_type": "premium",
+    "last_login": "2024-11-18T18:45:10Z",
+    "churn_risk_score": 0.42
+  },
+  {
+    "user_id": 3,
+    "city": "Valencia",
+    "timezone": "Europe/Madrid",
+    "plan_type": "free",
+    "last_login": "2024-11-19T08:05:33Z",
+    "churn_risk_score": 0.25
+  },
+  {
+    "user_id": 4,
+    "city": "Sevilla",
+    "timezone": "Europe/Madrid",
+    "plan_type": "premium",
+    "last_login": "2024-10-30T21:10:00Z",
+    "churn_risk_score": 0.67
+  },
+  {
+    "user_id": 5,
+    "city": "Bilbao",
+    "timezone": "Europe/Madrid",
+    "plan_type": "free",
+    "last_login": "2024-11-10T14:02:11Z",
+    "churn_risk_score": 0.35
+  },
+  {
+    "user_id": 6,
+    "city": "Lisbon",
+    "timezone": "Europe/Lisbon",
+    "plan_type": "free",
+    "last_login": "2024-11-17T09:55:00Z",
+    "churn_risk_score": 0.29
+  },
+  {
+    "user_id": 7,
+    "city": "Porto",
+    "timezone": "Europe/Lisbon",
+    "plan_type": "premium",
+    "last_login": "2024-11-01T12:30:45Z",
+    "churn_risk_score": 0.51
+  },
+  {
+    "user_id": 8,
+    "city": "London",
+    "timezone": "Europe/London",
+    "plan_type": "premium",
+    "last_login": "2024-11-21T07:10:05Z",
+    "churn_risk_score": 0.22
+  },
+  {
+    "user_id": 9,
+    "city": "Berlin",
+    "timezone": "Europe/Berlin",
+    "plan_type": "free",
+    "last_login": "2024-09-12T16:40:00Z",
+    "churn_risk_score": 0.74
+  },
+  {
+    "user_id": 10,
+    "city": "Valencia",
+    "timezone": "Europe/Madrid",
+    "plan_type": "free",
+    "last_login": null,
+    "churn_risk_score": 0.6
+  }
+]
