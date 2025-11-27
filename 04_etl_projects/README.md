@@ -1,79 +1,27 @@
+# Module 04 — ETL Projects
 
-# 04_ETL_Projects — Documentation
+The ETL Projects module combines the Extract, Transform, and Load components to build complete pipelines. It includes guided and unguided implementations that simulate real ETL workflows.
 
-This module provides a set of practical projects designed to implement complete ETL pipelines using Python.
-Its purpose is to consolidate extraction, transformation, and loading concepts and apply them to scenarios closer to real-world data engineering workflows.
+## Tools and Libraries Used
+- pandas for data handling throughout the pipeline  
+- requests for API-based extraction  
+- os for directory and path operations  
+- datetime for timestamp management in final outputs  
 
----
+## Purpose
+This module integrates individual ETL stages into cohesive, end-to-end workflows. It represents practical pipeline assembly using the foundational components defined in earlier modules.
 
-## 1. Module Objective
+## Concepts Addressed
+- Multi-source ETL integration  
+- Pipeline orchestration  
+- Data validation steps  
+- Modular ETL architecture  
 
-The goals of this module are:
+## Files Included
+- guided_etl_notebook.py  
+- mini_project_1.py  
+- mini_project_2.py  
+- final_project.py  
 
-- Designing reproducible ETL structures in Python.
-- Integrating data from multiple sources (CSV, JSON, APIs).
-- Applying consistent and coherent data transformations.
-- Defining output formats following best practices.
-- Documenting each phase of the process clearly.
-
----
-
-## 2. Module Components
-
-### 2.1 Mini Project 1
-Simple ETL pipeline based on local sources (CSV and JSON).
-Covers extraction, transformation, and loading.
-
-### 2.2 Mini Project 2
-API-oriented ETL pipeline.
-Includes data normalization, error handling, and multi-format export.
-
-### 2.3 Guided ETL Notebook
-Interactive notebook describing general ETL structure, modular design, and basic checks.
-
-### 2.4 Final Project
-Complete ETL pipeline integrating multiple sources, advanced transformations, and structured loading.
-
----
-
-## 3. Prerequisites
-
-To complete this module, the following knowledge is required:
-
-- Reading data from CSV, JSON, and HTTP requests.
-- Basic proficiency with pandas.
-- Understanding of cleaning, normalization, and data typing.
-- Basic knowledge of saving data (CSV, JSON, Excel).
-
----
-
-## 4. Module Structure
-
-```
-04_etl_projects/
-│── notes.md
-│── mini_project_1.py
-│── mini_project_2.py
-│── guided_etl_notebook.ipynb
-│── final_project.py
-```
-
----
-
-## 5. Implementation Guidelines
-
-- Each project should be organized in functions grouped by ETL phase (extract, transform, load).
-- Basic validation steps are recommended before the loading phase.
-- Code should be reproducible in any Python environment with pandas installed.
-- Paths and filenames must remain consistent across the pipeline.
-
----
-
-## 6. Next Steps
-
-Once all projects are completed, it is recommended to review:
-
-- Full code modularization.
-- Basic logging.
-- Error handling and exception control.
-- Improvements to data read/write efficiency.
+## Module Summary
+The ETL Projects module showcases complete ETL implementations. It demonstrates the interaction between modules and provides structured examples aligned with realistic engineering patterns.
