@@ -5,7 +5,6 @@ The Extract module focuses on retrieving raw data from different sources and con
 ## Tools and Libraries Used
 - pandas for file-based data loading
 - requests for HTTP API requests
-- os for path handling when applicable
 
 ## Purpose
 This module centralizes data ingestion operations. It loads datasets from local storage or external endpoints and ensures that the resulting structures are valid for transformation. Its scope is limited to safe ingestion, without applying business logic or cleaning layers.
