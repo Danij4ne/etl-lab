@@ -11,16 +11,17 @@
 # - If you get stuck, go back to the guided exercises to refresh ideas.
 
 
-# 0️⃣ IMPORTS
+# IMPORTS
 #
 # IMPORTANT:
 # - Import pandas as pd.
 # - Load the datasets when needed.
 #
-# YOUR CODE HERE
+
+import pandas as pd
 
 
-# 1️⃣ EXERCISE 1 - CONVERT UNITS IN heights_weights.csv
+# EXERCISE 1 - CONVERT UNITS IN heights_weights.csv
 #
 # File: data/heights_weights.csv
 #
@@ -37,10 +38,18 @@
 # NOTE:
 # - No hints here: you already did this in the guided exercises.
 #
-# YOUR CODE HERE
 
+df_hw = pd.read_csv("02_transform/data/heights_weights.csv")
+print(df_hw)
 
-# 2️⃣ EXERCISE 2 - CALCULATE BMI
+df_hw["height_m"] = round(df_hw["height_inch"] * 0.0254 , 2)
+df_hw["weight_kg"] = round(df_hw["weight_lb"] * 0.453592 , 2)
+
+print(df_hw.head())
+
+print(df_hw.describe())
+
+# EXERCISE 2 - CALCULATE BMI
 #
 # TASKS:
 # 1. Using df_hw from the previous exercise:
@@ -49,10 +58,12 @@
 # 2. Round to 2 decimals.
 # 3. Display the first rows.
 #
-# YOUR CODE HERE
+
+df_hw["BMI"] = round(df_hw["weight_kg"] / (df_hw["height_m"] **2), 2)
+print(df_hw)
 
 
-# 3️⃣ EXERCISE 3 - LOAD AND ANALYZE dirty_data.csv
+# EXERCISE 3 - LOAD AND ANALYZE dirty_data.csv
 #
 # File: data/dirty_data.csv
 #
@@ -65,10 +76,18 @@
 #    - nulls per column
 #    - duplicated rows
 #
-# YOUR CODE HERE
 
+df_dirty = pd.read_csv("02_transform/data/dirty_data.csv") 
+print(df_dirty)
+print(df_dirty.head(2))
+print(df_dirty.shape)
+print(df_dirty.dtypes)
 
-# 4️⃣ EXERCISE 4 - CLEAN SPACES AND CASE FORMATTING
+print(df_dirty.isnull().sum())
+
+print(df_dirty[df_dirty.duplicated()])
+
+# EXERCISE 4 - CLEAN SPACES AND CASE FORMATTING
 #
 # TASKS:
 # 1. Clean "name":
@@ -81,10 +100,11 @@
 # OBJECTIVE:
 # - Make name and email consistent and clean.
 #
-# YOUR CODE HERE
+ 
+df_dirty["name"] =  df_dirty["name"].str.strip().str.title()
+df_dirty["email"] =  df_dirty["email"].str.strip().str.lower()
 
-
-# 5️⃣ EXERCISE 5 - NORMALIZE THE country COLUMN
+# EXERCISE 5 - NORMALIZE THE country COLUMN
 #
 # TASKS:
 # 1. Remove extra spaces.
@@ -95,10 +115,12 @@
 # SUGGESTION:
 # - Choose the final format yourself (for example: "spain").
 #
-# YOUR CODE HERE
+ 
+df_dirty["country"] = df_dirty["country"].str.strip().str.lower()
+df_dirty["country"] = df_dirty["country"].replace({"españa": "spain"})
 
 
-# 6️⃣ EXERCISE 6 - HANDLE NULLS IN age
+# EXERCISE 6 - HANDLE NULLS IN age
 #
 # TASKS:
 # 1. Analyze how many nulls exist.
@@ -110,10 +132,18 @@
 # 3. Apply the strategy.
 # 4. Verify that there are no nulls left.
 #
-# YOUR CODE HERE
+ 
+print(df_dirty["age"].isna().sum())
+
+median_age = df_dirty["age"].median()
+
+df_dirty["age"] = df_dirty["age"].fillna(median_age)
+
+print(df_dirty["age"].isna().sum())
 
 
-# 7️⃣ EXERCISE 7 - REMOVE DUPLICATES
+
+# EXERCISE 7 - REMOVE DUPLICATES
 #
 # TASKS:
 # 1. Check how many rows exist before cleaning.
@@ -121,10 +151,26 @@
 # 3. Check how many rows remain afterwards.
 # 4. Ensure df_dirty has no duplicates.
 #
-# YOUR CODE HERE
+ 
+ 
+print("Rows before cleaning:", df_dirty.shape)
+
+ 
+print("Duplicate rows before cleaning:")
+print(df_dirty[df_dirty.duplicated()])  
+
+ 
+df_dirty = df_dirty.drop_duplicates()
+ 
+
+print("Rows after cleaning:", df_dirty.shape)
+
+ 
+print("Remaining duplicates:", df_dirty.duplicated().sum())
 
 
-# 8️⃣ EXERCISE 8 - CREATE A FINAL CLEAN DATAFRAME
+
+# EXERCISE 8 - CREATE A FINAL CLEAN DATAFRAME
 #
 # TASKS:
 # 1. Select only the clean columns you want:
@@ -141,10 +187,21 @@
 # OBJECTIVE:
 # - Have df_clean ready for the Load phase.
 #
-# YOUR CODE HERE
+ 
+
+print(df_dirty)
+
+df_clean = df_dirty[["name","email","age","country"]]
+
+print(df_clean.head())
+
+print(df_clean.shape)
+
+print(df_clean.dtypes)
 
 
-# 9️⃣ EXERCISE 9 - JOIN df_hw (converted) WITH df_clean (clean)
+
+#  EXERCISE 9 - JOIN df_hw (converted) WITH df_clean (clean)
 #
 # OBJECTIVE:
 # - Practice joins between transformed datasets.
@@ -159,10 +216,13 @@
 # - If you do not have a common column, create one:
 #   For example: convert names to lowercase in both DataFrames.
 #
-# YOUR CODE HERE
 
 
-# 🔟 EXERCISE 10 - CREATE A transform() FUNCTION
+df_final = pd.merge(df_clean, df_hw, on= "name" , how = "inner")
+ 
+
+
+#  EXERCISE 10 - CREATE A transform() FUNCTION
 #
 # OBJECTIVE:
 # - Simulate a real Transform module in a professional ETL workflow.
@@ -187,7 +247,7 @@
 
 
 
-# 🎯 BONUS EXERCISE 11 (OPTIONAL)
+#  BONUS EXERCISE 11 (OPTIONAL)
 #
 # OBJECTIVE:
 # - Take Transform to the next level.
