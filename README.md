@@ -1,4 +1,14 @@
 # ETL Pipeline Lab
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white)
+![ETL Pipeline](https://img.shields.io/badge/Focus-ETL_Pipeline_Development-2C3E50?style=for-the-badge)
+![Modular Architecture](https://img.shields.io/badge/Architecture-3_Modules_+_Projects-0A66C2?style=for-the-badge)
+![Extraction](https://img.shields.io/badge/Stage-Extraction_CSV_JSON_API-8E44AD?style=for-the-badge)
+![Transformation](https://img.shields.io/badge/Stage-Transformation_Workflows-F39C12?style=for-the-badge)
+![Loading](https://img.shields.io/badge/Stage-Loading_CSV_JSON_Excel-27AE60?style=for-the-badge)
+![Last Commit](https://img.shields.io/github/last-commit/danij4ne/etl-lab?style=for-the-badge)
+![Commit Activity](https://img.shields.io/github/commit-activity/m/danij4ne/etl-lab?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-1D8348?style=for-the-badge)
 
 The ETL Pipeline Lab is a structured repository focused on the implementation of Extract, Transform, and Load workflows using Python. The repository is organized into independent modules that isolate the functionality of each ETL stage and provide documentation, exercises, and datasets required for practical data-processing workflows.
 
