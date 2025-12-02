@@ -243,28 +243,34 @@ df_final = pd.merge(df_clean, df_hw, on= "name" , how = "inner")
 #     ...
 #     return df_hw_final, df_clean_final
 #
-# YOUR CODE HERE
+ 
+def transform():
+    ddf_h = pd.read_csv("02_transform/data/heights_weights.csv")
+    ddf_h["m"] = round(ddf_h["height_inch"] * 0.0254 , 2)
+    ddf_h["kg"] = round(ddf_h["weight_lb"] * 0.453592 , 2)
+    ddf_h["BMI"] = round(ddf_h["kg"] / (ddf_h["m"] ** 2), 2)
 
+    ddf_d = pd.read_csv("02_transform/data/dirty_data.csv")
+    ddf_d["name"] = ddf_d["name"].str.strip().str.title()
+    ddf_d["email"] = ddf_d["email"].str.strip().str.lower()
 
+    m_age = ddf_d["age"].mean()
+    ddf_d["age"] = ddf_d["age"].fillna(m_age)
 
-#  BONUS EXERCISE 11 (OPTIONAL)
-#
-# OBJECTIVE:
-# - Take Transform to the next level.
-#
-# TASKS:
-# 1. Create a function clean_email(email) that:
-#    - removes spaces
-#    - converts to lowercase
-#    - validates that the email contains exactly 1 "@"
-#    - returns None if invalid
-# 2. Apply it to the entire email column.
-#
-# EXTRA CHALLENGE:
-# - Count how many invalid emails were detected.
-#
-# YOUR CODE HERE
+    ddf_d["country"] = ddf_d["country"].str.replace("España", "Spain")
+    ddf_d["country"] = ddf_d["country"].str.strip().str.title()
 
+    ddf_d.drop_duplicates(inplace=True)
+
+    return ddf_h, ddf_d
+
+df_hw_final, df_clean_final = transform()
+
+print(df_clean_final.head())
+print(df_clean_final.shape)
+
+print(df_hw_final.head())
+print(df_hw_final.shape)
 
 
 
