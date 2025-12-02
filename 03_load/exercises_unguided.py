@@ -21,7 +21,11 @@
 # 2. Import os to manage folders.
 # 3. (Optional) Import datetime for timestamps.
 #
-# YOUR CODE HERE
+
+import pandas as pd
+import os 
+
+
 
 
 # 1 EXERCISE 1 - LOAD THE BASE DATASET
@@ -35,7 +39,14 @@
 #    - shape
 #    - data types
 #
-# YOUR CODE HERE
+ 
+
+df = pd.read_csv("03_load/data/sample_to_save.csv")
+print(df)
+print(df.head(2))
+print(df.shape)
+print(df.dtypes)
+
 
 
 # 2 EXERCISE 2 - CREATE OUTPUT FOLDER
@@ -47,7 +58,9 @@
 # NOTE:
 # - Use the same "output" folder for all following exercises.
 #
-# YOUR CODE HERE
+ 
+
+os.makedirs("output", exist_ok= True)
 
 
 # 3 EXERCISE 3 - SAVE CSV WITH DIFFERENT SEPARATOR
