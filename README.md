@@ -24,28 +24,25 @@ The purpose of this repository is to provide a modular and well-defined structur
 
 ```
 01_extract/
-    notes.md
-    notes_en.md
+    README.md
     exercises_guided.ipynb
     exercises_unguided.py
     data/
 
 02_transform/
-    notes.md
-    notes_en.md
+    README.md
     exercises_guided.ipynb
     exercises_unguided.py
     data/
 
 03_load/
-    notes.md
-    notes_en.md
+    README.md
     exercises_guided.ipynb
     exercises_unguided.py
     data/
 
 04_etl_projects/
-    notes.md
+    README.md
     guided_etl_notebook.ipynb
     mini_project_1.py
     mini_project_2.py
