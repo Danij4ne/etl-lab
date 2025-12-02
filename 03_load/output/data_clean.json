@@ -1,0 +1,37 @@
+[
+  {
+    "id":1,
+    "name":"Ana",
+    "email":"ana@example.com",
+    "age":23,
+    "country":"spain"
+  },
+  {
+    "id":2,
+    "name":"Carlos",
+    "email":"carlos@example.com",
+    "age":31,
+    "country":"spain"
+  },
+  {
+    "id":3,
+    "name":"Luc\u00eda",
+    "email":"lucia@example.com",
+    "age":27,
+    "country":"spain"
+  },
+  {
+    "id":4,
+    "name":"Pedro",
+    "email":"pedro@example.com",
+    "age":44,
+    "country":"spain"
+  },
+  {
+    "id":5,
+    "name":"Mar\u00eda",
+    "email":"maria@example.com",
+    "age":19,
+    "country":"spain"
+  }
+]
