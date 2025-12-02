@@ -102,7 +102,7 @@ This directory contains integrated end-to-end pipelines that combine the Extract
 ## Conventions and Standards
 
 - All documentation uses English naming and file structure.
-- Each module contains a `notes.md` file describing its structure and scope.
+- Each module contains a `README.md` file describing its structure and scope.
 - Exercises are separated into:
   - `exercises_guided.ipynb` for structured tasks
   - `exercises_unguided.py` for independent tasks
