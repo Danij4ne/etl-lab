@@ -40,6 +40,7 @@ The purpose of this repository is to provide a modular and well-defined structur
     exercises_guided.ipynb
     exercises_unguided.py
     data/
+    output/
 
 04_etl_projects/
     README.md
