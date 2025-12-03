@@ -26,8 +26,6 @@ import pandas as pd
 import os 
 
 
-
-
 # 1 EXERCISE 1 - LOAD THE BASE DATASET
 #
 # File: data/sample_to_save.csv
@@ -185,6 +183,9 @@ def save_if_not_exists(df, path):
     else:
         print("The file already exists. It has not been overwritten.")
 
+save_if_not_exists(df, "output/users_safe.csv")
+save_if_not_exists(df, "output/users_safe.csv")
+
 
 
 
@@ -205,7 +206,25 @@ def save_if_not_exists(df, path):
 # - from datetime import datetime
 # - datetime.now().strftime("%Y%m%d_%H%M%S")
 #
-# YOUR CODE HERE
+ 
+from datetime import datetime
+ 
+
+def save_with_timestamp(df, base_name):
+    os.makedirs("output", exist_ok=True)
+
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+
+    filename = f"output/{base_name}_{timestamp}.csv"
+
+    df.to_csv(filename, index=False)
+
+    print(f"File saved as: {filename}")
+
+save_with_timestamp(df, "users_version")
+save_with_timestamp(df, "users_version")
+
+
 
 
 # 10 EXERCISE 10 - MINI LOAD PIPELINE
@@ -232,6 +251,25 @@ def save_if_not_exists(df, path):
 #    - (Optional): use timestamps in the filename.
 # 2. Call final_load_pipeline(df_hw_final, df_clean_final).
 #
-# YOUR CODE HERE
+
+
+def final_load_pipeline(df_hw_final, df_clean_final):
+     
+    os.makedirs("output_final", exist_ok=True)
+    
+    df_hw_final.to_csv("output_final/heights_weights_final.csv", index=False)
+    
+    df_clean_final.to_csv("output_final/users_clean_final.csv", index=False)
+    
+    df_clean_final.to_json(
+        "output_final/users_clean_final.json",
+        orient="records",
+        indent=2
+    )
+
+df_hw_final = df.copy()
+df_clean_final = df.copy()
+
+final_load_pipeline(df_hw_final, df_clean_final)
 
 
