@@ -77,7 +77,8 @@ os.makedirs("output", exist_ok= True)
 # QUESTION:
 # - What changes when you open the file in a text editor?
 #
-# YOUR CODE HERE
+
+df.to_csv("output/data_semicolon.csv", sep=";" , index = False)
 
 
 # 4 EXERCISE 4 - SAVE JSON ORIENTED BY COLUMNS
@@ -91,7 +92,9 @@ os.makedirs("output", exist_ok= True)
 # 2. Use orient="columns" or any format different from "records".
 # 3. Compare the result with a "records" JSON.
 #
-# YOUR CODE HERE
+
+
+df.to_json("output/data_by_columns.json" , orient= "columns" )
 
 
 # 5 EXERCISE 5 - SAVE A SELECTION OF COLUMNS
@@ -107,7 +110,11 @@ os.makedirs("output", exist_ok= True)
 #       output/data_contacts.csv
 # 3. Do not save the index.
 #
-# YOUR CODE HERE
+
+df_small = df[["name","email"]]
+
+df_small.to_csv("output/data_contacts.csv" , index= False)
+
 
 
 # 6 EXERCISE 6 - SAVE TO EXCEL WITH CUSTOM SHEET NAME
@@ -120,7 +127,8 @@ os.makedirs("output", exist_ok= True)
 #       output/data_users.xlsx
 # 2. Use a custom sheet name, for example: "Users".
 #
-# YOUR CODE HERE
+ 
+df.to_excel("output/data_users.xlsx", sheet_name="Users", index=False)
 
 
 # 7 EXERCISE 7 - CREATE A save_all_formats() FUNCTION
@@ -141,7 +149,17 @@ os.makedirs("output", exist_ok= True)
 # 2. Test the function with:
 #    save_all_formats(df, "users_full")
 #
-# YOUR CODE HERE
+
+ 
+
+def save_all_formats(df, basename):
+    os.makedirs("output" , exist_ok= True)
+    df.to_csv(f"output/{basename}.csv" , index= False)
+    df.to_json(f"output/{basename}.json" , orient = "records" , indent = 2 )
+    df.to_excel(f"output/{basename}.xlsx" ,index = False )
+
+save_all_formats(df, "users_full")
+
 
 
 # 8 EXERCISE 8 - CONTROL OVERWRITE
@@ -157,7 +175,17 @@ os.makedirs("output", exist_ok= True)
 #         "The file already exists. It has not been overwritten."
 # 2. Test the function twice with the same path.
 #
-# YOUR CODE HERE
+
+ 
+
+def save_if_not_exists(df, path):
+    if not os.path.exists(path):               
+        df.to_csv(path, index=False)           
+        print("File saved successfully.")
+    else:
+        print("The file already exists. It has not been overwritten.")
+
+
 
 
 # 9 EXERCISE 9 - SAVE DIFFERENT VERSIONS WITH TIMESTAMP
@@ -207,29 +235,3 @@ os.makedirs("output", exist_ok= True)
 # YOUR CODE HERE
 
 
-# BONUS EXERCISE 11 (OPTIONAL) - FILE GENERATION LOG
-#
-# OBJECTIVE:
-# - Record which files your Load process generates.
-#
-# TASKS:
-# 1. Create a function log_file_created(path) that:
-#    - receives the path of a file
-#    - opens (or creates) a file named "load_log.txt" in append mode
-#    - writes a line containing:
-#         TIMESTAMP,PATH
-# 2. Modify one of your saving functions (for example:
-#    save_all_formats or save_with_timestamp) so that it calls
-#    log_file_created() after saving each file.
-# 3. Inspect the contents of load_log.txt after several executions.
-#
-# YOUR CODE HERE
-
-
-# END OF 03_LOAD - UNGUIDED EXERCISES
-#
-# If you complete these exercises:
-# - You master the Load phase of a basic ETL.
-# - You can save data in multiple formats.
-# - You can control overwriting, versioning, and logging.
-# - You are ready for 04_etl_projects to build complete ETL pipelines.
